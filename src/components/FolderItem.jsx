@@ -12,7 +12,7 @@ function FolderItem({ folder }) {
                     <path d="M18 5H0v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5Zm-7.258-2L9.092.8a2.009 2.009 0 0 0-1.6-.8H2.049a2 2 0 0 0-2 2v1h10.693Z" />
                 </svg>
                 <div className='flex flex-col space-y-1 justify-start items-center text-center'>
-                    <h3 className='text-sm md:text-lg'>{folder.name}
+                    <h3 className='text-sm md:text-lg text-gray-800'>{folder.name}
                     </h3>
                     {folder.type === 'folder' &&
                         <span className='text-xs md:text-sm text-gray-500'>{folder.files.length} Items</span>}

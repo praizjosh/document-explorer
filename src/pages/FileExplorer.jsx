@@ -48,9 +48,9 @@ function FileExplorer() {
             <hr className='bg-neutral-100 my-4' />
 
             <div className='my-12'>
-                <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 md:gap-4">
+                <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 md:gap-4">
                     {filteredData.map((item) => (
-                        <li key={item.id} className='flex flex-col h-full justify-center items-center bg-slate-200 p-6 rounded'>
+                        <li key={item.id} className='flex flex-col h-full justify-center items-center bg-slate-300 p-6 rounded'>
                             {item.type === 'folder' ? (
                                 <FolderItem folder={item} />
                             ) : (
