@@ -16,13 +16,21 @@ function FileExplorer() {
 
     return (
         <div>
-            <div className='flex flex-col md:flex-row md:space-x-4 mb-4 leading-none tracking-tight text-gray-900'>
-                <div className='inline-flex space-x-1 mb-2 md:mb-0'>
+            <div className='flex flex-col md:flex-row md:space-x-2 space-y-3 md:space-y-0 text-gray-900'>
+                <input
+                    className='w-full sm:max-w-[280px] bg-gray-50 border border-gray-300 text-gray-900 text-sm md:text-md rounded focus:ring-blue-500 focus:border-blue-500 h-10 p-2.5'
+                    type="text"
+                    placeholder="Filter by filename"
+                    value={filter}
+                    onChange={(e) => setFilter(e.target.value)}
+                />
+                <div className='inline-flex space-x-2'>
                     <label htmlFor='sort-select' className='p-2.5 h-8'>Sort by:</label>
                     <span className='sr-only'> Sort by name, date added, size or file type.</span>
                     <select id='sort-select' value={sortBy} onChange={(e) => setSortBy(e.target.value)}
                         className='bg-gray-50 border border-gray-300 text-gray-900 text-sm md:text-md rounded focus:ring-blue-500 focus:border-blue-500 h-10 p-2'
                     >
+                        <option value=""></option>
                         <option value="date">Date</option>
                         <option value="name">Name</option>
                         <option value="size">Size</option>
@@ -35,20 +43,12 @@ function FileExplorer() {
                         <option value="asc">Asc</option>
                         <option value="desc">Dsc</option>
                     </select>
-
                 </div>
-                <input
-                    className='bg-gray-50 border border-gray-300 text-gray-900 text-sm md:text-md rounded focus:ring-blue-500 focus:border-blue-500 h-10 p-2.5'
-                    type="text"
-                    placeholder="Filter by filename"
-                    value={filter}
-                    onChange={(e) => setFilter(e.target.value)}
-                />
             </div>
             <hr className='bg-neutral-100 my-4' />
 
             <div className='my-12'>
-                <ul className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
+                <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 md:gap-4">
                     {filteredData.map((item) => (
                         <li key={item.id} className='flex flex-col h-full justify-center items-center bg-slate-200 p-6 rounded'>
                             {item.type === 'folder' ? (

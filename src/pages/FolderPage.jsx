@@ -33,16 +33,22 @@ const FolderPage = () => {
             <>
                 <div>
                     <Breadcrumb items={breadcrumbItems} />
-                    <hr className='bg-neutral-100 my-4' />
-                    <h2 className='text-xl text-gray-900 font-bold leading-8 mt-3'>Folder Name: {folder.name}</h2>
 
-                    <div className='flex flex-col md:flex-row md:space-x-4 mb-4 leading-none tracking-tight text-gray-900'>
-                        <div className='inline-flex space-x-1 mb-2 md:mb-0'>
+                    <div className='flex flex-col md:flex-row md:space-x-2 space-y-3 md:space-y-0 text-gray-900 mt-4'>
+                        <input
+                            className='w-full sm:max-w-[280px] bg-gray-50 border border-gray-300 text-gray-900 text-sm md:text-md rounded focus:ring-blue-500 focus:border-blue-500 h-10 p-2.5'
+                            type="text"
+                            placeholder="Filter by filename"
+                            value={filter}
+                            onChange={(e) => setFilter(e.target.value)}
+                        />
+                        <div className='inline-flex space-x-2'>
                             <label htmlFor='sort-select' className='p-2.5 h-8'>Sort by:</label>
                             <span className='sr-only'> Sort by name, date added, size or file type.</span>
                             <select id='sort-select' value={sortBy} onChange={(e) => setSortBy(e.target.value)}
-                                className='bg-gray-50 border border-gray-300 text-gray-900 text-sm md:text-md rounded focus:ring-blue-500 focus:border-blue-500 h-10 p-2'
+                                className='w-20 bg-gray-50 border border-gray-300 text-gray-900 text-sm md:text-md rounded focus:ring-blue-500 focus:border-blue-500 h-10 p-2'
                             >
+                                <option value=""></option>
                                 <option value="date">Date</option>
                                 <option value="name">Name</option>
                                 <option value="size">Size</option>
@@ -51,26 +57,18 @@ const FolderPage = () => {
 
                             <label htmlFor='sort-order-select' className='sr-only'> Sort in ascending or descending order.</label>
                             <select
-                                className='bg-gray-50 border border-gray-300 text-gray-900 text-sm md:text-md rounded focus:ring-blue-500 focus:border-blue-500 h-10 p-2' id='sort-order-select' value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+                                className='w-20 bg-gray-50 border border-gray-300 text-gray-900 text-sm md:text-md rounded focus:ring-blue-500 focus:border-blue-500 h-10 p-2' id='sort-order-select' value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
                                 <option value="asc">Asc</option>
                                 <option value="desc">Dsc</option>
                             </select>
-
                         </div>
-                        <input
-                            className='bg-gray-50 border border-gray-300 text-gray-900 text-sm md:text-md rounded focus:ring-blue-500 focus:border-blue-500 h-10 p-2.5'
-                            type="text"
-                            placeholder="Filter by filename"
-                            value={filter}
-                            onChange={(e) => setFilter(e.target.value)}
-                        />
                     </div>
-                    <hr className='bg-neutral-100 my-4' />
 
                     <hr className='bg-neutral-100 my-4' />
+                    <h2 className='text-lg text-gray-900 font-light leading-8 my-3'>Folder Name: {folder.name}</h2>
 
                     <div className='my-12'>
-                        <ul className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
+                        <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 md:gap-4">
                             {sortedAndFilteredFiles.map((file) => (
                                 <li key={file.id} className='flex flex-col h-full justify-center items-center bg-slate-200 p-6 rounded'>
                                     <FileItem file={file} />
