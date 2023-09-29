@@ -70,7 +70,7 @@ const FolderPage = () => {
                     <div className='my-12'>
                         <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 md:gap-4">
                             {sortedAndFilteredFiles.map((file) => (
-                                <li key={file.id} className='flex flex-col h-full justify-center items-center bg-slate-200 p-6 rounded'>
+                                <li key={file.id} className='flex flex-col h-full justify-center items-center bg-neutral-200 p-6 rounded'>
                                     <FileItem file={file} />
 
                                 </li>
