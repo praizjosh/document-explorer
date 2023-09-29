@@ -15,11 +15,11 @@ const Breadcrumb = ({ items }) => {
                             </svg>
                         )}
                         {item.url ? (
-                            <Link to={item.url} className={`ml-1 text-sm font-medium ${index === items.length - 1 ? 'text-gray-500' : 'text-gray-700'} hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white`}>
+                            <Link to={item.url} className={`ml-1 text-sm font-medium ${index === items.length - 1 ? 'text-gray-500' : 'text-gray-700'} hover:text-blue-600 md:ml-2`}>
                                 {item.label}
                             </Link>
                         ) : (
-                            <span className={`ml-1 text-sm font-medium ${index === items.length - 1 ? 'text-gray-500' : 'text-gray-700'} md:ml-2 dark:text-gray-400`}>
+                            <span className={`ml-1 text-sm font-medium ${index === items.length - 1 ? 'text-gray-500' : 'text-gray-700'} md:ml-2`}>
                                 {item.label}
                             </span>
                         )}
