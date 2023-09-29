@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "keywords": ['document-explorer', document-explorer],
+  "keywords": [],
   "author": "Josh Praise",
   "license": "ISC",
   "scripts": {
