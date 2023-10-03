@@ -13,8 +13,8 @@ function App() {
           <Route path="/" element={<FileExplorer />} />
           <Route path="/folder/:id" element={<FolderPage />} />
         </Routes>
-        <Analytics />
       </BrowserRouter>
+      <Analytics />
     </div>
   );
 }
