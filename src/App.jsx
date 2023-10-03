@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 import FileExplorer from './pages/FileExplorer';
 import FolderPage from './pages/FolderPage';
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<FileExplorer />} />
           <Route path="/folder/:id" element={<FolderPage />} />
         </Routes>
+        <Analytics />
       </BrowserRouter>
     </div>
   );
