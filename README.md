@@ -2,6 +2,8 @@
 
 Document Explorer is a web application that allows users to explore and manage documents and folders. This application provides a user-friendly interface to view, sort, and filter documents based on various criteria. It is built using React and utilizes React Router for seamless navigation.
 
+Deployed on Vercel --> https://document-explorer.vercel.app/
+
 ## Features
 
 - **Sorting:** Sort documents by name, date, size, or file type.
