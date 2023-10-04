@@ -3,6 +3,9 @@ import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 import FileExplorer from './pages/FileExplorer';
 import FolderPage from './pages/FolderPage';
+import Footer from './components/Footer';
+
+
 
 function App() {
   return (
@@ -14,6 +17,7 @@ function App() {
           <Route path="/folder/:id" element={<FolderPage />} />
         </Routes>
       </BrowserRouter>
+      <Footer />
       <Analytics />
     </div>
   );
