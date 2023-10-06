@@ -28,8 +28,9 @@ function FileItem({ file }) {
             <div className='flex flex-col space-y-1 justify-center items-center text-center'>
                 <h3 className='text-sm md:text-lg text-gray-800'>{file.name + '.' + file.type}</h3>
                 <span className='text-xs md:text-sm text-gray-500'>{file.added}</span>
-                <span className='text-xs md:text-sm text-gray-500'>{file.size && <> {file.size} </>}</span>
-
+                <span className='text-xs md:text-sm text-gray-500'>
+                    {/* Check if the 'file.size' property exists and has a truthy value else don't render. */}
+                    {file.size && <> {file.size} </>}</span>
             </div>
         </div>
     );

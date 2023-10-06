@@ -14,8 +14,8 @@ function FolderItem({ folder }) {
                 <div className='flex flex-col space-y-1 justify-start items-center text-center'>
                     <h3 className='text-sm md:text-lg text-gray-800'>{folder.name}
                     </h3>
-                    {folder.type === 'folder' &&
-                        <span className='text-xs md:text-sm text-gray-500'>{folder.files.length} Items</span>}
+                    {/*   If folder.type is 'folder' show number of items else don't. */}
+                    {folder.type === 'folder' && <span className='text-xs md:text-sm text-gray-500'>{folder.files.length} Items</span>}
                 </div>
             </div>
         </Link>
