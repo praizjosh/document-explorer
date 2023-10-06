@@ -30,9 +30,9 @@ function FileExplorer() {
                     <select id='sort-select' value={sortBy} onChange={(e) => setSortBy(e.target.value)}
                         className='bg-gray-50 border border-gray-300 text-gray-900 text-sm md:text-md rounded focus:ring-blue-500 focus:border-blue-500 h-10 p-2'
                     >
-                        <option value=""></option>
+                        <option value="">Select</option>
                         <option value="date">Date</option>
-                        <option value="name">Name</option>
+                        <option value="name">Name (A-Z)</option>
                         <option value="size">Size</option>
                         <option value="type">Type</option>
                     </select>

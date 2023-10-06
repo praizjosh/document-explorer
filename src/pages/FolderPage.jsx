@@ -48,9 +48,9 @@ const FolderPage = () => {
                             <select id='sort-select' value={sortBy} onChange={(e) => setSortBy(e.target.value)}
                                 className='w-20 bg-gray-50 border border-gray-300 text-gray-900 text-sm md:text-md rounded focus:ring-blue-500 focus:border-blue-500 h-10 p-2'
                             >
-                                <option value=""></option>
+                                <option value="">Select</option>
                                 <option value="date">Date</option>
-                                <option value="name">Name</option>
+                                <option value="name">Name (A-Z)</option>
                                 <option value="size">Size</option>
                                 <option value="type">Type</option>
                             </select>
@@ -65,9 +65,9 @@ const FolderPage = () => {
                     </div>
 
                     <hr className='bg-neutral-100 my-4' />
-                    <h2 className='text-lg text-gray-900 font-light leading-8 my-3'>Folder Name: {folder.name}</h2>
+                    <h2 className='text-lg text-gray-900 font-medium leading-8 my-3'>Folder Name: {folder.name}</h2>
 
-                    <div className='my-12'>
+                    <div className='mb-12'>
                         <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 md:gap-4">
                             {sortedAndFilteredFiles.map((file) => (
                                 <li key={file.id} className='flex flex-col h-full justify-center items-center bg-slate-200 p-6 rounded'>

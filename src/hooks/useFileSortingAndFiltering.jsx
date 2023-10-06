@@ -14,6 +14,7 @@ function useFileSortingAndFiltering(rawData, sortBy, sortOrder, filter) {
             if (sortBy === 'name') {
                 comparison = a.name.localeCompare(b.name);
             } else if (sortBy === 'size') {
+                // Checks if the a.size/b.size property exists and parse the size from a string to a floating-point number using parseFloat(). If a.size/b.size doesn't exist set sizeA/sizeB to 0. Next check if a.size/b.size exists and if it contains the string 'MB' in a case-insensitive manner. If true, multiply sizeA/sizeB by 1000 to convert it from megabytes to kilobytes else leave it as it is (assuming it's already in kilobytes).
                 const sizeA = a.size ? parseFloat(a.size) : 0;
                 const sizeB = b.size ? parseFloat(b.size) : 0;
                 const sizeUnitA = a.size && a.size.toLowerCase().includes('mb') ? sizeA * 1000 : sizeA;

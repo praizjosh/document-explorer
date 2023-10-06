@@ -4,6 +4,18 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 function FolderItem({ folder }) {
+    // Calculate total size in KB
+    const totalSizeKB = folder.files.reduce((acc, file) => {
+        const size = parseFloat(file.size);
+        const multiplier = file.size.toLowerCase().includes('mb') ? 1000 : 1;
+        return acc + size * multiplier;
+    }, 0);
+
+    // Convert total size from KB to MB
+    const totalSizeMB = (totalSizeKB / 1000).toFixed(2); // 1 MB = 1,000 KB
+
+    // Convert total size from KB to GB
+    const totalSizeGB = (totalSizeKB / 1000000).toFixed(2); // 1 GB = 1,000,000 KB
 
     return (
         <Link className='text-inherit' to={`/folder/${folder.id}`}>
@@ -15,7 +27,15 @@ function FolderItem({ folder }) {
                     <h3 className='text-sm md:text-lg text-gray-800'>{folder.name}
                     </h3>
                     {/*   If folder.type is 'folder' show number of items else don't. */}
-                    {folder.type === 'folder' && <span className='text-xs md:text-sm text-gray-500'>{folder.files.length} Items</span>}
+                    {folder.type === 'folder' && <span className='text-xs md:text-sm text-gray-500'>{` ${folder.files.length} Items`}</span>}
+
+                    {/* Display the total size of folder files in MB or GB*/}
+                    <span className='text-xs md:text-sm text-gray-500'>
+                        {`Total: ${totalSizeKB < 1000000 ? `${totalSizeMB} MB` : `${totalSizeGB} GB`
+                            }`}
+                    </span>
+
+
                 </div>
             </div>
         </Link>
@@ -28,7 +48,13 @@ FolderItem.propTypes = {
         id: PropTypes.number.isRequired, // Add id to PropTypes
         name: PropTypes.string.isRequired,
         type: PropTypes.string.isRequired,
-        files: PropTypes.arrayOf(PropTypes.object),
+        files: PropTypes.arrayOf(PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            type: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            added: PropTypes.string.isRequired,
+            size: PropTypes.string.isRequired,
+        })),
     }).isRequired,
 };
 
