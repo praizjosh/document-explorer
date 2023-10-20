@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "keywords": [],
+  "keywords": ["file explorer", "document explorer", "file manager"],
   "author": "Josh Praise",
   "license": "ISC",
   "scripts": {
