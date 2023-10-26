@@ -59,6 +59,9 @@ function FileExplorer() {
                         </li>
                     ))}
                 </ul>
+                {filteredData.length === 0 &&
+                    (<p className='text-blue-500 font-medium bg-blue-50 px-4 py-2 rounded absolute'>Sorry, no results found.</p>)
+                }
             </div>
         </div>
     );

@@ -72,10 +72,12 @@ const FolderPage = () => {
                             {sortedAndFilteredFiles.map((file) => (
                                 <li key={file.id} className='flex flex-col h-full justify-center items-center bg-slate-200 p-6 rounded'>
                                     <FileItem file={file} />
-
                                 </li>
                             ))}
                         </ul>
+                        {sortedAndFilteredFiles.length === 0 &&
+                            (<p className='text-blue-500 font-medium bg-blue-50 px-4 py-2 rounded absolute'>Sorry, no results found.</p>)
+                        }
                     </div>
                 </div>
             </>
